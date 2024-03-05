@@ -1,0 +1,24 @@
+.details{
+    -fx-background-color: linear-gradient(to bottom, #417B25, #163708);
+}
+.logInButton{
+    -fx-background-color: #528937;
+    -fx-background-radius: 15px;
+}
+.uName, .pName{
+    -fx-background-color: #528937;
+    -fx-text-fill: #FFFF;
+    -fx-background-radius: 15px;
+}
+.menuButtons{
+    -fx-background-color: transparent;
+    -fx-graphic: url('/imgs/dashboard.png');
+}
+.darkGreen{
+    -fx-background-color: #2D5B16;
+    -fx-background-radius: 10px;
+}
+.lighter{
+    -fx-background-color: #D8E4D2;
+    -fx-background-radius: 10px;
+}
