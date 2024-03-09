@@ -1,6 +1,5 @@
 package com.example.demo;
 
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -99,3 +98,5 @@ public class stocksController {
         }
     }
 }
+
+//for commit
