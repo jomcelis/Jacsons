@@ -11,6 +11,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class dashboardController {
 
@@ -46,7 +47,7 @@ public class dashboardController {
     @FXML
     void employeeAction(ActionEvent event) {
         try {
-            Parent view = FXMLLoader.load(getClass().getResource("employee.fxml"));
+            Parent view = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("employee.fxml")));
             dashBp.setCenter(view);
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -55,7 +56,7 @@ public class dashboardController {
     @FXML
     void accountAction(ActionEvent event) {
         try {
-            Parent view = FXMLLoader.load(getClass().getResource("account.fxml"));
+            Parent view = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("account.fxml")));
             dashBp.setCenter(view);
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -65,7 +66,7 @@ public class dashboardController {
     @FXML
     void pOrderAction(ActionEvent event) {
         try {
-            Parent view = FXMLLoader.load(getClass().getResource("purchaseOrder.fxml"));
+            Parent view = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("purchaseOrder.fxml")));
             dashBp.setCenter(view);
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -75,7 +76,7 @@ public class dashboardController {
     @FXML
     void salesAction(ActionEvent event) {
         try {
-            Parent view = FXMLLoader.load(getClass().getResource("sales.fxml"));
+            Parent view = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("sales.fxml")));
             dashBp.setCenter(view);
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -85,7 +86,7 @@ public class dashboardController {
     @FXML
     void stocksAction(ActionEvent event) {
         try {
-            Parent view = FXMLLoader.load(getClass().getResource("stocks.fxml"));
+            Parent view = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("stocks.fxml")));
             dashBp.setCenter(view);
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -95,7 +96,7 @@ public class dashboardController {
     @FXML
     void supplierAction(ActionEvent event) {
         try {
-            Parent view = FXMLLoader.load(getClass().getResource("supplier.fxml"));
+            Parent view = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("supplier.fxml")));
             dashBp.setCenter(view);
         } catch (IOException ex) {
             ex.printStackTrace();
