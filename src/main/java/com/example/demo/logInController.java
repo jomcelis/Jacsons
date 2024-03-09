@@ -30,9 +30,6 @@ public class logInController {
     private Label valid;
 
     @FXML
-
-// ...
-
     void logInButtonAction(ActionEvent event) {
         String username = uName.getText();
         String password = uPass.getText();

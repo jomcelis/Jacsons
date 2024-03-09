@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.demo.supplierController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane fx:id="employeeBp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="585.3334" prefWidth="706.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <BorderPane prefHeight="585.3" prefWidth="876.0">
+         <top>
+            <Label prefHeight="177.0" prefWidth="331.0" text="SUPPLIER PAGE" BorderPane.alignment="CENTER" />
+         </top>
+      </BorderPane>
+   </children>
 </AnchorPane>

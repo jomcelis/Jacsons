@@ -16,7 +16,7 @@
 
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="585.0" prefWidth="876.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.dashboardController">
    <children>
-      <BorderPane prefHeight="200.0" prefWidth="200.0">
+      <BorderPane fx:id="dashBp" prefHeight="200.0" prefWidth="200.0">
          <left>
             <VBox alignment="CENTER" prefHeight="400.0" prefWidth="170.0" styleClass="details" stylesheets="@../../../styles/design.css" BorderPane.alignment="CENTER">
                <children>
@@ -39,7 +39,7 @@
                         <Font size="17.0" />
                      </font>
                   </Button>
-                  <Button fx:id="employee" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="25.0" prefWidth="174.0" styleClass="menuButtons" stylesheets="@../../../styles/design.css" text="Employee" textFill="WHITE">
+                  <Button fx:id="employee" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#employeeAction" prefHeight="25.0" prefWidth="174.0" styleClass="menuButtons" stylesheets="@../../../styles/design.css" text="Employee" textFill="WHITE">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
@@ -50,7 +50,7 @@
                         <Font size="17.0" />
                      </font>
                   </Button>
-                  <Button fx:id="stocks" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="25.0" prefWidth="174.0" styleClass="menuButtons" stylesheets="@../../../styles/design.css" text="Stocks" textFill="WHITE">
+                  <Button fx:id="stocks" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#stocksAction" prefHeight="25.0" prefWidth="174.0" styleClass="menuButtons" stylesheets="@../../../styles/design.css" text="Stocks" textFill="WHITE">
                      <padding>
                         <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                      </padding>
@@ -58,7 +58,7 @@
                         <Font size="17.0" />
                      </font>
                   </Button>
-                  <Button fx:id="sales" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="25.0" prefWidth="174.0" styleClass="menuButtons" stylesheets="@../../../styles/design.css" text="Sales" textFill="WHITE">
+                  <Button fx:id="sales" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#salesAction" prefHeight="25.0" prefWidth="174.0" styleClass="menuButtons" stylesheets="@../../../styles/design.css" text="Sales" textFill="WHITE">
                      <padding>
                         <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                      </padding>
@@ -66,7 +66,7 @@
                         <Font size="17.0" />
                      </font>
                   </Button>
-                  <Button fx:id="pOrder" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="25.0" prefWidth="174.0" styleClass="menuButtons" stylesheets="@../../../styles/design.css" text="Purchase Order" textFill="WHITE">
+                  <Button fx:id="pOrder" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#pOrderAction" prefHeight="25.0" prefWidth="174.0" styleClass="menuButtons" stylesheets="@../../../styles/design.css" text="Purchase Order" textFill="WHITE">
                      <padding>
                         <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                      </padding>
@@ -74,7 +74,7 @@
                         <Font size="17.0" />
                      </font>
                   </Button>
-                  <Button fx:id="supplier" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="25.0" prefWidth="174.0" styleClass="menuButtons" stylesheets="@../../../styles/design.css" text="Supplier" textFill="WHITE">
+                  <Button fx:id="supplier" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#supplierAction" prefHeight="25.0" prefWidth="174.0" styleClass="menuButtons" stylesheets="@../../../styles/design.css" text="Supplier" textFill="WHITE">
                      <padding>
                         <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                      </padding>
@@ -82,7 +82,7 @@
                         <Font size="17.0" />
                      </font>
                   </Button>
-                  <Button fx:id="account" alignment="TOP_LEFT" mnemonicParsing="false" prefHeight="25.0" prefWidth="174.0" styleClass="menuButtons" stylesheets="@../../../styles/design.css" text="Account" textFill="WHITE">
+                  <Button fx:id="account" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#accountAction" prefHeight="25.0" prefWidth="174.0" styleClass="menuButtons" stylesheets="@../../../styles/design.css" text="Account" textFill="WHITE">
                      <padding>
                         <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                      </padding>
