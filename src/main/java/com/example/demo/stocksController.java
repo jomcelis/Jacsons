@@ -24,7 +24,7 @@ public class stocksController {
     @FXML
     private TableColumn<tbl_inventory, Integer> col_Qty;
     @FXML
-    private  TableColumn<tbl_inventory,Integer> col_unitName;
+    private TableColumn<tbl_inventory,Integer> col_unitName;
     @FXML
     private TextField input_Qty;
     @FXML
@@ -32,15 +32,15 @@ public class stocksController {
 
 
     public void initialize() throws Exception { // Called after FXML is loaded
-        // Get inventory data from database
-
         ObservableList<tbl_inventory> inventoryList = getInventoryDetails();
-        inventoryTable.setItems(inventoryList);
 
+        // Configure columns
         col_InventoryID.setCellValueFactory(new PropertyValueFactory<>("inventoryId"));
         col_unitCode.setCellValueFactory(new PropertyValueFactory<>("unitCode"));
         col_Qty.setCellValueFactory(new PropertyValueFactory<>("qty"));
-        inventoryTable.setItems(getInventoryDetails());
+        col_unitName.setCellValueFactory(new PropertyValueFactory<>("unitName"));
+
+        inventoryTable.setItems(inventoryList);
 
         // Set items to the table
         updateQtyButton.setOnAction(actionEvent -> {
