@@ -1,14 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 
-<AnchorPane fx:id="employeeBp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="585.3334" prefWidth="706.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="employeeBp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="585.3334" prefWidth="706.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.supplierController">
    <children>
       <BorderPane prefHeight="585.3" prefWidth="876.0">
          <top>
             <Label prefHeight="177.0" prefWidth="331.0" text="SUPPLIER PAGE" BorderPane.alignment="CENTER" />
          </top>
       </BorderPane>
+      <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="589.0" prefWidth="685.0">
+         <children>
+            <Label layoutX="32.0" layoutY="41.0" text="Unit Name" />
+            <TextArea id="input_Name" fx:id="input_name" layoutX="32.0" layoutY="59.0" minHeight="-Infinity" prefHeight="34.0" prefWidth="154.0" />
+            <Label layoutX="206.0" layoutY="41.0" text="Unit Type" />
+            <Label layoutX="379.0" layoutY="41.0" text="Unit Color" />
+            <Label layoutX="33.0" layoutY="105.0" text="Unit Finish" />
+            <Button id="addUnitButton" fx:id="addUnitButton" layoutX="374.0" layoutY="125.0" mnemonicParsing="false" text="Add Unit" />
+            <TableView fx:id="unit" layoutX="32.0" layoutY="196.0" prefHeight="200.0" prefWidth="554.0">
+               <columns>
+                  <TableColumn id="col_unitID" fx:id="col_unitID" prefWidth="119.20002746582031" text="Unit" />
+                  <TableColumn id="col_name" fx:id="col_unitName" minWidth="4.0" prefWidth="64.79998779296875" text="Name" />
+                  <TableColumn id="col_type" fx:id="col_unitType" minWidth="3.20001220703125" prefWidth="42.4000244140625" text="Type" />
+                  <TableColumn id="col_color" fx:id="col_unitColor" prefWidth="75.0" text="Color" />
+                  <TableColumn id="col_finish" fx:id="col_unitFinish" prefWidth="75.0" text="Finish" />
+                  <TableColumn id="col_price" fx:id="col_unitPrice" prefWidth="74.39996337890625" text="Price" />
+               </columns>
+            </TableView>
+            <Button id="removeUnitButton" fx:id="removeUnitButton" layoutX="466.0" layoutY="125.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="62.0" text="Remove Unit" />
+            <TextArea id="input_price" fx:id="input_price" layoutX="206.0" layoutY="121.0" minHeight="-Infinity" prefHeight="34.0" prefWidth="154.0" />
+            <Label layoutX="206.0" layoutY="105.0" text="Unit Price" />
+            <ComboBox fx:id="input_type" layoutX="208.0" layoutY="61.0" prefWidth="150.0" />
+            <ComboBox id="input_color" fx:id="input_color" layoutX="379.0" layoutY="63.0" prefWidth="150.0" />
+            <ComboBox id="input_finish" fx:id="input_finish" layoutX="34.0" layoutY="126.0" prefWidth="150.0" />
+            <Button id="updateUnitButton" fx:id="updateUnitButton" layoutX="542.0" layoutY="125.0" mnemonicParsing="false" text="Update" />
+            <Button fx:id="refreshButton" layoutX="378.0" layoutY="170.0" text="Refresh" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
