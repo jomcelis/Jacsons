@@ -2,15 +2,13 @@ package com.example.demo;
 
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.sql.*;
 
 import static com.example.demo.database.getInventoryDetails;
+import static com.example.demo.database.getUnitData;
 
 public class stocksController {
 
@@ -23,15 +21,23 @@ public class stocksController {
     @FXML
     private TableColumn<tbl_inventory, Integer> col_Qty;
     @FXML
-    private TableColumn<tbl_inventory,Integer> col_unitName;
+    private TableColumn<tbl_inventory, Integer> col_unitName;
     @FXML
     private TextField input_Qty;
     @FXML
     private Button updateQtyButton;
+    @FXML
+    private ComboBox<tbl_unit> input_name;
+    @FXML
+    private Button addToInventoryButton;
+
+    ObservableList<tbl_inventory> listM;
 
 
-    public void initialize() throws Exception { // Called after FXML is loaded
+    public void initialize() throws Exception {
         ObservableList<tbl_inventory> inventoryList = getInventoryDetails();
+        ObservableList<tbl_unit> unitTypes = getUnitData("unit", "unitCode", "unitName");
+        input_name.setItems(unitTypes);
 
         // Configure columns
         col_InventoryID.setCellValueFactory(new PropertyValueFactory<>("inventoryId"));
@@ -60,12 +66,39 @@ public class stocksController {
             }
         });
 
+        addToInventoryButton.setOnAction(actionEvent -> {
+            String toAdd = String.valueOf(input_name.getValue()); // Access unitName from tbl_unit
+
+            try {
+                if (isUnitAlreadyInInventory(toAdd)) { // Check for duplicate unit
+                    Alert alert = new Alert(Alert.AlertType.WARNING);
+                    alert.setTitle("Duplicate Unit");
+                    alert.setContentText("The unit '" + toAdd + "' already exists in the inventory!");
+                    alert.showAndWait();
+                    return; // Prevent further processing if duplicate
+                }
+
+                Connection connection = database.getConnection();
+
+                // ... (rest of the code for adding to inventory)
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        });
+    }
+
+    public boolean isUnitAlreadyInInventory(String unitName) throws Exception {
+        Connection connection = database.getConnection(); // Assuming database.getConnection() is available
+        String checkQuery = "SELECT * FROM unit WHERE unitName = '" + unitName + "'";
+        PreparedStatement checkStatement = connection.prepareStatement(checkQuery);
+        ResultSet checkResultSet = checkStatement.executeQuery();
+        return checkResultSet.next(); // True if a matching unit is found
     }
 
         public void updateQuantity(int inventoryId, int quantityToAdd) throws Exception {
         Connection connection = database.getConnection(); // Assuming database.getConnection() is available
         try {
-            String query = "UPDATE inventory_details SET quantity = quantity + ? WHERE inventoryID = ?"; // Using quantity + ? to add
+            String query = "UPDATE inventory SET currentStock = currentStock + ? WHERE inventoryID = ?"; // Using quantity + ? to add
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setInt(1, quantityToAdd); // Provide the amount to add
             statement.setInt(2, inventoryId);

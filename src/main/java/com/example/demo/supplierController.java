@@ -16,6 +16,7 @@ import java.sql.ResultSet;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
+import static com.example.demo.database.getUnitData;
 import static com.example.demo.database.getUnits;
 
 public class supplierController {
@@ -467,24 +468,6 @@ public class supplierController {
 
 
 
-    private ObservableList<tbl_unit> getUnitData(String tableName, String idColumn, String nameColumn) throws Exception {
-        Connection connection = database.getConnection();
-        ObservableList<tbl_unit> units = FXCollections.observableArrayList();
 
-        try {
-            String query = "SELECT " + idColumn + ", " + nameColumn + " FROM " + tableName;
-            PreparedStatement statement = connection.prepareStatement(query);
-            ResultSet rs = statement.executeQuery();
-
-            while (rs.next()) {
-                int id = rs.getInt(idColumn);
-                String name = rs.getString(nameColumn);
-                units.add(new tbl_unit(id, null, name, null, null, 0));
-            }
-        } finally {
-            database.closeConnection(connection);
-        }
-        return units;
-    }
 }
 
