@@ -31,6 +31,13 @@
                   <ComboBox fx:id="input_name" layoutX="61.0" layoutY="293.0" prefHeight="26.0" prefWidth="241.0" />
                   <Label layoutX="438.0" layoutY="275.0" text="Add stock" />
                   <Button fx:id="addToInventoryButton" layoutX="62.0" layoutY="332.0" mnemonicParsing="false" text="Add to Inventory" />
+                  <TableView layoutX="444.0" layoutY="358.0" prefHeight="200.0" prefWidth="200.0">
+                    <columns>
+                      <TableColumn prefWidth="75.0" text="C1" />
+                      <TableColumn prefWidth="75.0" text="C2" />
+                    </columns>
+                  </TableView>
+                  <Label layoutX="579.0" layoutY="336.0" text="Choose unit" />
                </children>
             </AnchorPane>
          </center>

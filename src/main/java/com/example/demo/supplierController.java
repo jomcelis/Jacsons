@@ -118,9 +118,6 @@ public class supplierController {
 
     @FXML
     public void initialize() throws Exception {
-        //TableColumn<tbl_unit, Integer> idColumn = new TableColumn<>("ggaga");
-        //TableColumn<tbl_unit, String> nameColumn = new TableColumn<>("Name");
-        //TableColumn<tbl_unit, Integer> ageColumn = new TableColumn<>("Age");
         col_unitID.setCellValueFactory(new PropertyValueFactory<>("unitCode"));
         col_unitName.setCellValueFactory(new PropertyValueFactory<>("Name"));
         col_unitType.setCellValueFactory(new PropertyValueFactory<>("Type"));

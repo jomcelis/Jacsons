@@ -24,14 +24,14 @@
             <Label layoutX="379.0" layoutY="41.0" text="Unit Color" />
             <Label layoutX="33.0" layoutY="105.0" text="Unit Finish" />
             <Button id="addUnitButton" fx:id="addUnitButton" layoutX="374.0" layoutY="125.0" mnemonicParsing="false" text="Add Unit" />
-            <TableView fx:id="unit" layoutX="32.0" layoutY="196.0" prefHeight="200.0" prefWidth="554.0">
+            <TableView fx:id="unit" layoutX="17.0" layoutY="195.0" prefHeight="200.0" prefWidth="652.0">
                <columns>
-                  <TableColumn id="col_unitID" fx:id="col_unitID" prefWidth="119.20002746582031" text="Unit" />
-                  <TableColumn id="col_name" fx:id="col_unitName" minWidth="4.0" prefWidth="64.79998779296875" text="Name" />
-                  <TableColumn id="col_type" fx:id="col_unitType" minWidth="3.20001220703125" prefWidth="42.4000244140625" text="Type" />
-                  <TableColumn id="col_color" fx:id="col_unitColor" prefWidth="75.0" text="Color" />
-                  <TableColumn id="col_finish" fx:id="col_unitFinish" prefWidth="75.0" text="Finish" />
-                  <TableColumn id="col_price" fx:id="col_unitPrice" prefWidth="74.39996337890625" text="Price" />
+                  <TableColumn id="col_unitID" fx:id="col_unitID" prefWidth="28.800018310546875" text="Unit" />
+                  <TableColumn id="col_name" fx:id="col_unitName" minWidth="4.0" prefWidth="299.20002365112305" text="Name" />
+                  <TableColumn id="col_type" fx:id="col_unitType" minWidth="3.20001220703125" prefWidth="88.79998779296875" text="Type" />
+                  <TableColumn id="col_color" fx:id="col_unitColor" prefWidth="78.4000244140625" text="Color" />
+                  <TableColumn id="col_finish" fx:id="col_unitFinish" minWidth="0.0" prefWidth="54.4000244140625" text="Finish" />
+                  <TableColumn id="col_price" fx:id="col_unitPrice" minWidth="4.79998779296875" prefWidth="84.800048828125" text="Price" />
                </columns>
             </TableView>
             <Button id="removeUnitButton" fx:id="removeUnitButton" layoutX="466.0" layoutY="125.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="62.0" text="Remove Unit" />

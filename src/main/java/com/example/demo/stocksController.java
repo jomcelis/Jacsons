@@ -67,9 +67,11 @@ public class stocksController {
         });
 
         addToInventoryButton.setOnAction(actionEvent -> {
+
             String toAdd = String.valueOf(input_name.getValue()); // Access unitName from tbl_unit
 
             try {
+
                 if (isUnitAlreadyInInventory(toAdd)) { // Check for duplicate unit
                     Alert alert = new Alert(Alert.AlertType.WARNING);
                     alert.setTitle("Duplicate Unit");
@@ -80,7 +82,31 @@ public class stocksController {
 
                 Connection connection = database.getConnection();
 
-                // ... (rest of the code for adding to inventory)
+                // 1. Check if unit exists in "unit" table
+                String checkQuery = "SELECT * FROM unit WHERE unitName = ?";
+                PreparedStatement checkStatement = connection.prepareStatement(checkQuery);
+                checkStatement.setString(1, toAdd);
+                ResultSet checkResultSet = checkStatement.executeQuery();
+
+                if (checkResultSet.next()) { // Unit exists
+                    int unitCode = checkResultSet.getInt("unitCode");
+
+                    // 2. Insert into "inventory" table
+                    String insertQuery = "INSERT INTO inventory (unitCode, currentStock) VALUES (?, 0)"; // Insert with initial quantity 0
+                    PreparedStatement insertStatement = connection.prepareStatement(insertQuery);
+                    insertStatement.setInt(1, unitCode);
+                    insertStatement.executeUpdate();
+
+                    // 3. Refresh table data
+                    listM = getInventoryDetails();
+                    inventoryTable.setItems(listM);
+
+                    System.out.println("Unit added to inventory successfully!"); // Optional success message
+                } else {
+                    // Handle no matching unit case (e.g., display an error message)
+                    System.out.println("Unit not found in the database!");
+                }
+
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
@@ -89,8 +115,10 @@ public class stocksController {
 
     public boolean isUnitAlreadyInInventory(String unitName) throws Exception {
         Connection connection = database.getConnection(); // Assuming database.getConnection() is available
-        String checkQuery = "SELECT * FROM unit WHERE unitName = '" + unitName + "'";
-        PreparedStatement checkStatement = connection.prepareStatement(checkQuery);
+        String query = "SELECT i.inventoryID, i.currentStock, u.unitName, u.unitPrice, u.unitType, u.unitColor, u.unitFinish " +
+                "FROM inventory i " +
+                "INNER JOIN unit u ON i.unitCode = u.unitCode " +
+                "WHERE u.unitName = '" + unitName + "'";        PreparedStatement checkStatement = connection.prepareStatement(query);
         ResultSet checkResultSet = checkStatement.executeQuery();
         return checkResultSet.next(); // True if a matching unit is found
     }
